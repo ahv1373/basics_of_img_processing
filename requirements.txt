@@ -1,0 +1,12 @@
+imutils
+opencv-python
+scikit-learn
+scikit-image
+scipy
+imutils
+matplotlib
+tensorflow
+torch
+torchvision
+pandas
+ultralytics
