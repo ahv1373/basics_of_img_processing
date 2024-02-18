@@ -23,11 +23,11 @@ class CustomCNNClassifier:
     def build_model(self) -> tf.keras.models.Model:
         model_ = tf.keras.models.Sequential([
             tf.keras.layers.Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=self.input_shape,
-                                   padding='same'),
+                                   padding='same', strides=(1, 1)),
             tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
-            tf.keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same'),
+            tf.keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same', strides=(1, 1)),
             tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
-            tf.keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same'),
+            tf.keras.layers.Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same', strides=(1, 1)),
             tf.keras.layers.Flatten(),
             tf.keras.layers.Dense(units=64, activation='relu'),
             tf.keras.layers.Dense(units=self.num_classes, activation='softmax')  # softmax for multi-class
