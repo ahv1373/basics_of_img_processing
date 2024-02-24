@@ -8,7 +8,7 @@ import tensorflow as tf
 
 class CustomCNNClassifier:
     def __init__(self, number_of_classes: int = 10, input_shape: Tuple[int, int, int] = (28, 28, 1),
-                 optimizer: str = 'adam', loss: str = 'categorical_crossentropy',
+                 optimizer: str = 'adam', loss: str = 'categorical_crossentropy', learning_rate: float = 0.001,
                  metrics: str = 'accuracy', epochs: int = 5, batch_size: int = 32):
         self.history: Optional[tf.keras.callbacks.History] = None
         self.epochs: int = epochs
@@ -18,6 +18,7 @@ class CustomCNNClassifier:
         self.optimizer: str = optimizer  # 'adam', 'sgd', 'rmsprop', 'adagrad', 'adadelta', 'adamax', 'nadam'
         self.loss: str = loss  # 'categorical_crossentropy', 'sparse_categorical_crossentropy', 'binary_crossentropy'
         self.metrics: List[str] = [metrics]
+        self.learning_rate = learning_rate
         self.model: tf.keras.models.Model = self.build_model()
 
     def build_model(self) -> tf.keras.models.Model:
