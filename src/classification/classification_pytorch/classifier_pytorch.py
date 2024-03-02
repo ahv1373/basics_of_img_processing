@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print(f"Device: {DEVICE}")
 
     PERFORM_TRAINING = False
-    PERFORM_EVALUATION = True
+    PERFORM_EVALUATION = False
     PERFORM_INFERENCE = True
 
     # Load the data
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-    if PERFORM_TRAINING:
+    if PERFORM_TRAINING is True:
         # Create the model
         model = CustomCNNClassifierTorchModel().to(DEVICE)  # move the model to the device
         # set model to training mode
