@@ -81,7 +81,7 @@ class TorchObjectDetection:
             y = start_y - 15 if start_y - 15 > 15 else start_y + 15
             cv2.putText(frame, label, (start_x, y), cv2.FONT_HERSHEY_COMPLEX, 0.5, self.colors[class_index], 2)
 
-    def exec(self, frame=np.array) -> Tuple[List[list], List[int], List[float]]:
+    def exec(self, frame: np.array) -> Tuple[List[list], List[int], List[float]]:
         preprocessed_img = self.__preprocess_frame__(frame)
         bboxes_list, class_index_list, scores_list = self.__detect__(preprocessed_img)
         return bboxes_list, class_index_list, scores_list
@@ -93,8 +93,8 @@ if __name__ == "__main__":
 
     object_detector = TorchObjectDetection(model_name="frcnn-resnet")
     object_detector.load()
-    INFERENCE_ON_IMAGES = False
-    INFERENCE_ON_WEBCAM = True
+    INFERENCE_ON_IMAGES = True
+    INFERENCE_ON_WEBCAM = False
     if INFERENCE_ON_IMAGES is True:
         img_dir = "/home/ahv/PycharmProjects/basics_of_img_processing/src/dataset/london_street"
         print(f"Performing inference on images in: {img_dir}")
